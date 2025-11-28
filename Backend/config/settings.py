@@ -7,7 +7,7 @@ load_dotenv()
 class Config:
     # Flask Configuration
     SECRET_KEY = os.getenv('FLASK_SECRET_KEY', 'dev-secret-key-change-in-production')
-    DEBUG = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
+    DEBUG = os.getenv('FLASK_DEBUG', 'True').lower() == 'true'  # Cambiar a True para desarrollo
     PORT = int(os.getenv('PORT', 5000))
     
     # MongoDB Configuration
@@ -27,5 +27,7 @@ class Config:
     CORS_ORIGINS = [
         "http://localhost:3000",
         "http://127.0.0.1:3000",
-        "https://authentication-system-sigma-five.vercel.app"
+        "https://authentication-system-sigma-five.vercel.app",
+        "http://127.0.0.1:5500",
+        "http://localhost:5500"
     ]
