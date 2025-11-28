@@ -1,3 +1,4 @@
+# Ruta: Backend/application/use_cases/totp_usecases.py
 from domain.otp_generator import OTPGenerator
 from infrastructure.database.mongo_repository import MongoDBRepository
 from infrastructure.qr.qr_generator import QRGenerator

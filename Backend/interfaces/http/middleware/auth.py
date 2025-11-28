@@ -1,3 +1,4 @@
+# Ruta: Backend/interfaces/http/middleware/auth.py
 from flask import session, jsonify, request
 from functools import wraps
 import logging

@@ -1,3 +1,4 @@
+// Ruta: Frontend/pages/auth-methods/sms-otp/verification/verification.js
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 Verification page loaded');
 

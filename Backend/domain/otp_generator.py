@@ -1,3 +1,4 @@
+# Ruta: Backend/domain/otp_generator.py
 import pyotp
 import logging
 

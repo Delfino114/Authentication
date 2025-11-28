@@ -1,3 +1,4 @@
+// Ruta: Frontend/pages/auth-methods/totp/qr_scan/qr.js
 document.addEventListener("DOMContentLoaded", async () => {
     const container = document.getElementById("qrContainer");
     const scannedBtn = document.getElementById("scannedBtn");

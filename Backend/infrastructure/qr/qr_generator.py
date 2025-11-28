@@ -1,3 +1,4 @@
+# Ruta: Backend/infrastructure/qr/qr_generator.py
 import qrcode
 from qrcode.image.pil import PilImage
 from io import BytesIO

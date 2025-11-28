@@ -1,4 +1,4 @@
-let value = "";
+// Ruta: Frontend/pages/auth-methods/totp/verification/verification.js
 const btn_submt = document.querySelector('.submit_btn');
 const messageDiv = document.getElementById('message');
 btn_submt.disabled = true;

@@ -1,3 +1,4 @@
+# Ruta: Backend/domain/face_recognizer.py
 import face_recognition
 import numpy as np
 import logging

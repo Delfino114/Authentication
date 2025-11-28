@@ -1,3 +1,4 @@
+# Ruta: Backend/interfaces/http/routes/faceid_routes.py
 from flask import Blueprint, request, jsonify, session
 from domain.face_recognizer import FaceRecognizer
 from interfaces.http.middleware.auth import login_required

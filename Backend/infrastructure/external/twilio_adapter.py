@@ -1,3 +1,4 @@
+# Ruta: Backend/infrastructure/external/twilio_adapter.py
 from twilio.rest import Client
 import os
 from config.settings import Config

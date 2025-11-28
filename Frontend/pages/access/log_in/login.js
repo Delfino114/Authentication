@@ -1,3 +1,4 @@
+// Ruta: Frontend/pages/access/log_in/login.js
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 Login page loaded');
 

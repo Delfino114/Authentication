@@ -1,3 +1,4 @@
+// Ruta: Frontend/pages/auth-methods/sms-otp/sms.js
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 SMS OTP page loaded');
 

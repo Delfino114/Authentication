@@ -1,3 +1,4 @@
+// Ruta: Frontend/public/index.js
 async function Acceder() {
     try {
         console.log('🚀 Redirigiendo al sistema de autenticación...');

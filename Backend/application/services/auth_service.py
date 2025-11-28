@@ -1,3 +1,4 @@
+# Ruta: Backend/application/services/auth_service.py
 from infrastructure.database.mongo_repository import MongoDBRepository
 from domain.models import User
 import logging

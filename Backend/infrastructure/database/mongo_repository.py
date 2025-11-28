@@ -1,3 +1,4 @@
+# Ruta: Backend/infrastructure/database/mongo_repository.py
 from pymongo import MongoClient
 import os
 from config.settings import Config

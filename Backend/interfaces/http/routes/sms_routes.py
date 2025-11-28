@@ -1,3 +1,4 @@
+# Ruta: Backend/interfaces/http/routes/sms_routes.py
 from flask import Blueprint, request, jsonify, session
 from application.services.sms_service import SMSService
 from interfaces.http.middleware.auth import login_required

@@ -1,3 +1,4 @@
+// Ruta: Frontend/pages/index/index.js
 async function cerrarSesion() {
     try {
         const response = await fetch('http://localhost:5000/api/auth/logout', {

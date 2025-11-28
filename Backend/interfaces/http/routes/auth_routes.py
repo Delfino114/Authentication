@@ -1,3 +1,4 @@
+# Ruta: Backend/interfaces/http/routes/auth_routes.py
 from flask import Blueprint, request, jsonify, session
 from application.use_cases.auth_usecases import RegisterUserUseCase, AuthenticateUserUseCase, GetUserInfoUseCase
 from application.use_cases.totp_usecases import RegisterTOTPUseCase

@@ -1,3 +1,4 @@
+# Ruta: Backend/interfaces/http/routes/totp_routes.py
 from flask import Blueprint, request, jsonify, session, Response
 from application.use_cases.totp_usecases import GenerateQRUseCase, ValidateTOTPUseCase
 from interfaces.http.middleware.auth import login_required

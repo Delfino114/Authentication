@@ -1,3 +1,4 @@
+# Ruta: Backend/main.py
 from flask import Flask
 from config.settings import Config
 from interfaces.http.middleware.cors import setup_cors

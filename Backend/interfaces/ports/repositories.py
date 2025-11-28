@@ -1,3 +1,4 @@
+# Ruta: Backend/interfaces/ports/repositories.py
 from abc import ABC, abstractmethod
 from typing import Optional, Dict, Any
 
