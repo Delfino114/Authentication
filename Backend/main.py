@@ -5,7 +5,6 @@ from interfaces.http.middleware.cors import setup_cors
 from interfaces.http.routes.auth_routes import auth_bp
 from interfaces.http.routes.sms_routes import sms_bp
 from interfaces.http.routes.totp_routes import totp_bp
-from interfaces.http.routes.faceid_routes import faceid_bp
 import logging
 
 # Configurar logging
@@ -23,7 +22,6 @@ def create_app():
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
     app.register_blueprint(sms_bp, url_prefix='/api/sms')
     app.register_blueprint(totp_bp, url_prefix='/api/totp')
-    app.register_blueprint(faceid_bp, url_prefix='/api/faceid')
     
     # Ruta de health check
     @app.route('/health')
@@ -42,8 +40,7 @@ def create_app():
             'endpoints': {
                 'auth': '/api/auth',
                 'sms': '/api/sms', 
-                'totp': '/api/totp',
-                'faceid': '/api/faceid'
+                'totp': '/api/totp'
             }
         }, 200
     
