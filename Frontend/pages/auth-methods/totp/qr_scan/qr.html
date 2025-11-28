@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="qr.css">
+</head>
+<body>
+  <section class="py-3 py-md-5 py-xl-8">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-6 col-xl-5">
+          <div class="card shadow-sm">
+            <div class="card-body p-4 p-md-5 text-center">
+              <h2 class="fw-bold mb-4">Configurar Autenticación QR</h2>
+              
+              <div id="qrContainer" class="mb-4">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Cargando QR...</span>
+                </div>
+              </div>
+              
+              <div class="card-text">
+                <ol class="text-start">
+                  <li class="mb-2"><b>Abra</b> su aplicación de autenticación (Google Authenticator, Authy, etc.)</li>
+                  <li class="mb-2"><b>Escanee</b> el código QR con la aplicación</li>
+                  <li class="mb-2"><b>Ingrese el código OTP</b> generado por la aplicación en la siguiente pantalla</li>
+                </ol>
+              </div>
+              
+              <div class="d-grid mt-4">
+                <button id="scannedBtn" class="btn btn-primary btn-lg">Ya escaneé, verificar OTP</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<script src="qr.js"></script>
+</body>
+</html>
