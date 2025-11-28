@@ -44,12 +44,16 @@ def register():
         if error:
             return jsonify({'error': error}), 400
         
-        # Configurar sesión
+        # Configurar sesión COMPLETA
         session.permanent = True
         session['email'] = email
         session['first_name'] = first_name
         session['auth_method'] = auth_method
         session['pending_2fa'] = True
+        
+        # GUARDAR phone_number EN SESIÓN SI ES SMS
+        if auth_method == 'sms' and phone_number:
+            session['phone_number'] = phone_number
         
         if auth_method == 'sms':
             # Enviar OTP por SMS
@@ -59,7 +63,6 @@ def register():
             success, sms_error = sms_service.send_otp(phone_number, email)
             
             if success:
-                session['phone_number'] = phone_number
                 logger.info(f"✅ Usuario SMS registrado: {email}")
                 return jsonify({
                     'success': True,
@@ -180,12 +183,12 @@ def verify_otp():
         if not otp or not email:
             return jsonify({'error': 'OTP y email requeridos'}), 400
         
-        # Obtener teléfono del usuario
+        # Obtener teléfono del usuario DESDE LA BASE DE DATOS
         user_info, error = get_user_info_use_case.execute(email)
         if error:
             return jsonify({'error': error}), 404
         
-        phone_number = user_info.get('phone_number') or session.get('phone_number')
+        phone_number = user_info.get('phone_number')
         if not phone_number:
             return jsonify({'error': 'Número de teléfono no encontrado'}), 400
         

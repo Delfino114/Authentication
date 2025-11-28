@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         console.log('📡 Obteniendo código QR...');
         
-        const response = await fetch("http://localhost:5000/api/auth/qr", {
+        // CORREGIR: Cambiar la URL del endpoint
+        const response = await fetch("http://localhost:5000/api/totp/qr", {
             method: "GET",
             credentials: "include"
         });

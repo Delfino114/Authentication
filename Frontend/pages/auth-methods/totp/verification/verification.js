@@ -57,7 +57,8 @@ btn_submt.addEventListener('click', async () => {
     btn_submt.textContent = 'Verificando...';
 
     try {
-        const response = await fetch('http://localhost:5000/api/auth/validate-totp', {
+        // CORREGIR: Cambiar el endpoint
+        const response = await fetch('http://localhost:5000/api/totp/validate', {
             method: 'POST',
             credentials: 'include',
             headers: {
