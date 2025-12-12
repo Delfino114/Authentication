@@ -41,8 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const email = localStorage.getItem('pending_verification_email') || localStorage.getItem('user_email');
                 
-                console.log('📧 Email para verificación:', email);
-                
                 const response = await fetch('http://localhost:5000/api/auth/verify-otp', {
                     method: 'POST',
                     headers: {
@@ -51,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     credentials: 'include',
                     body: JSON.stringify({ 
                         otp: otp,
-                        email: email  // ENVIAR EXPLÍCITAMENTE
+                        email: email
                     })
                 });
 

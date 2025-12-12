@@ -289,8 +289,3 @@ def logout():
     except Exception as e:
         logger.error(f"❌ Error en logout: {e}")
         return jsonify({'error': 'Error cerrando sesión'}), 500
-    
-@auth_bp.route('/debug-session', methods=['GET'])
-def debug_session():
-    """Debug endpoint para ver la sesión"""
-    return jsonify(dict(session)), 200
