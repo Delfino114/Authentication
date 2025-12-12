@@ -18,10 +18,6 @@ def get_qr():
         email = session.get('email')
         logger.info(f"📷 Solicitando QR para: {email}")
         
-        if not email:
-            logger.error("❌ No hay email en sesión")
-            return jsonify({'error': 'No autorizado'}), 401
-            
         qr_image = generate_qr_use_case.execute(email)
         
         return Response(qr_image, mimetype='image/png')
@@ -31,21 +27,14 @@ def get_qr():
         return jsonify({'error': 'Error generando código QR'}), 500
 
 @totp_bp.route('/validate', methods=['POST'])
-def validate_totp():  # QUITAR @login_required temporalmente
+@login_required
+def validate_totp():
     """Valida un código TOTP"""
     try:
         data = request.get_json()
         code = data.get('code')
-        email = session.get('email')  # Obtener de sesión
+        email = session.get('email')
         
-        # Si no hay sesión, intentar obtener de localStorage vía parámetro
-        if not email:
-            email = data.get('email')
-            
-        if not email:
-            logger.error("❌ No hay email para validar TOTP")
-            return jsonify({'error': 'Email requerido'}), 400
-            
         if not code or len(code) != 6:
             return jsonify({'error': 'Código de 6 dígitos requerido'}), 400
         
@@ -55,7 +44,6 @@ def validate_totp():  # QUITAR @login_required temporalmente
         
         if is_valid:
             # Actualizar sesión
-            session['email'] = email
             session['pending_2fa'] = False
             session['authenticated'] = True
             session['user_verified'] = True
