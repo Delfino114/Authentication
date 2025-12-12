@@ -7,6 +7,7 @@ logger = logging.getLogger(__name__)
 
 class AuthService:
     def __init__(self):
+        
         self.db_repo = MongoDBRepository()
     
     def register_user(self, email, password, first_name, last_name, auth_method, phone_number=None):
@@ -78,6 +79,29 @@ class AuthService:
                     'auth_method': user.get('auth_method', 'totp'),
                     'verified': user.get('verified', False)
                 }, None
+            return None, "Usuario no encontrado"
+        except Exception as e:
+            logger.error(f"❌ Error en get_user_info: {e}")
+            return None, str(e)
+    
+    def get_user_info(self, email):
+        """Obtiene información del usuario"""
+        try:
+            logger.info(f"🔍 Buscando usuario en BD: {email}")
+            user = self.db_repo.get_user(email)
+            
+            if user:
+                logger.info(f"✅ Usuario encontrado: {email}")
+                logger.info(f"📋 Datos del usuario: {user}")
+                return {
+                    'email': user.get('email'),
+                    'first_name': user.get('first_name'),
+                    'last_name': user.get('last_name'),
+                    'auth_method': user.get('auth_method', 'totp'),
+                    'phone_number': user.get('phone_number'),  # AÑADIR ESTO
+                    'verified': user.get('verified', False)
+                }, None
+            logger.warning(f"❌ Usuario no encontrado: {email}")
             return None, "Usuario no encontrado"
         except Exception as e:
             logger.error(f"❌ Error en get_user_info: {e}")

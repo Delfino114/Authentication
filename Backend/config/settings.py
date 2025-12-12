@@ -7,7 +7,7 @@ load_dotenv()
 class Config:
     # Flask Configuration
     SECRET_KEY = os.getenv('FLASK_SECRET_KEY', 'dev-secret-key-change-in-production')
-    DEBUG = os.getenv('FLASK_DEBUG', 'True').lower() == 'true'  # Cambiar a True para desarrollo
+    DEBUG = os.getenv('FLASK_DEBUG', 'True').lower() == 'true'
     PORT = int(os.getenv('PORT', 5000))
     
     # MongoDB Configuration
@@ -19,9 +19,13 @@ class Config:
     TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
     TWILIO_FROM_NUMBER = os.getenv('TWILIO_FROM_NUMBER')
     
-    # Session Configuration
+    # Session Configuration - ACTUALIZADO
     SESSION_TYPE = 'filesystem'
+    SESSION_PERMANENT = True
     PERMANENT_SESSION_LIFETIME = 3600  # 1 hour
+    SESSION_COOKIE_SECURE = False  # Para desarrollo
+    SESSION_COOKIE_HTTPONLY = True
+    SESSION_COOKIE_SAMESITE = 'Lax'
     
     # CORS Configuration
     CORS_ORIGINS = [

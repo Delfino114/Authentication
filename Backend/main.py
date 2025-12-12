@@ -1,5 +1,6 @@
 # Ruta: Backend/main.py
 from flask import Flask
+from flask_session import Session  # IMPORTAR Session
 from config.settings import Config
 from interfaces.http.middleware.cors import setup_cors
 from interfaces.http.routes.auth_routes import auth_bp
@@ -14,6 +15,9 @@ logger = logging.getLogger(__name__)
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
+    
+    # Configurar sesiones
+    Session(app)
     
     # Configurar CORS
     setup_cors(app)
